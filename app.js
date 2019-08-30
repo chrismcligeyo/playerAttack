@@ -13,7 +13,49 @@ new Vue({
             this.playerHealth = 100;
             this.monsterHealth = 100;
 
-        }
+        },
+
+        attack: function () {
+            let max = 10;
+            let min =3;
+
+            let damage = Math.max(Math.floor(Math.random() * max) + 1, min);//means get the highest value(max) of random numbers between 10 and 3
+            this.monsterHealth -= damage;
+
+            //after dealing damage to the monster check if we won
+
+            if(this.monsterHealth <= 0) { // means if you beat the monster
+                alert('You won');
+                this.gameIsRunning = false; //game is reset to start game
+                return; //this prevents code below from being executed while above is done. we dont want the monster to continue damaging us because we won Nd the game is over. so return stops the code from running at that point
+            }
+
+            max = 12;
+            min = 5;
+            damage = Math.max(Math.floor(Math.random() * max) + 1, min);//means get the highest value(max) of random numbers between 10 and  3
+            this.playerHealth -= damage;
+
+
+            if(this.playerHealth <= 0) { // means if you beat the monster
+                alert('You lost');
+                this.gameIsRunning = false;
+                // dont need a return here, because no code after if
+            }
+        },
+        specialAttack: function () {
+
+        },
+        heal: function () {
+
+        },
+
+        giveUp: function () {
+
+        },
+
+
+
     }
+
 
 });
