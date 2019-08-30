@@ -92,6 +92,7 @@ new Vue({
         },
 
         giveUp: function () {
+            this.gameIsRunning = false;
 
         },
 
