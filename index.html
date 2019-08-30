@@ -26,12 +26,12 @@
             </div>
         </div>
     </section>
-    <section class="row controls">
+    <section class="row controls" v-if="!gameIsRunning"><!--if game is not running -->
         <div class="small-12 columns">
-            <button id="start-game">START NEW GAME</button>
+            <button id="start-game" @click="startGame">START NEW GAME</button><!--when you click on start new game button it displays the attack butons-->
         </div>
     </section>
-    <section class="row controls">
+    <section class="row controls" v-else=><!-- v-if and v else used in both sections because of the same element  type(section) means if game is not  running show start new game else show buttons below  -->
         <div class="small-12 columns">
             <button id="attack">ATTACK</button>
             <button id="special-attack">SPECIAL ATTACK</button>
