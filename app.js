@@ -23,9 +23,10 @@ new Vue({
             this.monsterHealth -= damage; */
 
             //refactored
-            let damage = this.calculateDamage(3, 10);
-            this.monsterHealth -= damage;
-            // this.monsterHealth -= this.calculateDamage(3,10);
+            this.monsterHealth -= this.calculateDamage(3,10);
+            // let damage = this.calculateDamage(3, 10);
+            // this.monsterHealth -= damage;
+
 
             //after dealing damage to the monster check if we won
             if (this.checkIfWon()){
@@ -60,8 +61,33 @@ new Vue({
         },
         specialAttack: function () {
 
+            this.monsterHealth -= this.calculateDamage(10,20);
+            // let damage = this.calculateDamage(3, 10);
+            // this.monsterHealth -= damage;
+
+
+            //after dealing damage to the monster check if we won
+            if (this.checkIfWon()){
+                return; //so as not to execute code anymore. code in
+
+            }
+            this.playerHealth -= this.calculateDamage(5,12);
+
+            this.checkIfWon();
+
+
+
         },
         heal: function () {
+            // // to heal increase playerhealth by ten
+            // this.playerHealth += 10;
+            //when you heal, you can heal passed 100% to avoid, do below
+            if(this.playerHealth <= 90){
+                this.playerHealth +=10;
+
+            } else {
+                this.playerHealth =100;
+            }
 
         },
 
@@ -76,7 +102,7 @@ new Vue({
         checkIfWon: function() {
 
             if (this.monsterHealth <= 0) { // means if you beat the monster
-                if (confirm('You won! Start New Game')) {
+                if (confirm('You won! Start New Game')) { //when user click okay run function below
                     this.startGame();
                 } else {
                     this.gameIsRunning = false;
