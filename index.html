@@ -26,7 +26,7 @@
             </div>
         </div>
     </section>
-    <section class="row controls" v-if="!gameIsRunning"><!--if game is not running -->
+    <section class="row controls" v-if="!gameIsRunning"><!--if game is not  running -->
         <div class="small-12 columns">
             <button id="start-game" @click="startGame">START NEW GAME</button><!--when you click on start new game button it displays the attack butons-->
         </div>
@@ -42,7 +42,10 @@
     <section class="row log">
         <div class="small-12 columns">
             <ul>
-                <li>
+                <li v-for="turn in turns" :class="{'player-turn' : turn.isPlayer, 'monster-turn' : !turn.isPlayer}"><!--we bing class from css. if playerturn is true, bind class player turn. If not player turn bind class monster turn.
+                these classes give different bckground to list content depending on turn
+                -->
+                    {{turn.text}}
 
                 </li>
             </ul>

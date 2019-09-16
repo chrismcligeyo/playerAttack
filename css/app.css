@@ -7,7 +7,7 @@
     height: 40px;
     background-color: #eee;
     margin: auto;
-    transition: width 500ms; <!--means when width is changed using js it the transiton from one width value to another occurs after 500ms -->
+    transition: width 500ms; /*means when width is changed using js it the transiton from one width value to another occurs after 500ms*/
 }
 
 .controls, .log {
